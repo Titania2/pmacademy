@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Volume2, VolumeX } from 'lucide-react';
+import content from '../content/homepage.json'; // ✅ Moved to top level
 
 const HeroSection: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
@@ -12,16 +13,7 @@ const HeroSection: React.FC = () => {
     }
   };
 
-  import content from "../content/homepage.json";
-
-
   return (
-    <section>
-      <h1>{content.hero_title}</h1>
-      <p>{content.hero_subtitle}</p>
-      <img src={content.hero_image} alt="Hero" />
-    </section>
-  );
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
@@ -33,7 +25,6 @@ const HeroSection: React.FC = () => {
           className="w-full h-full object-cover"
         >
           <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-          {/* Fallback image */}
           <img 
             src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
             alt="Young pianist at piano"
@@ -56,25 +47,25 @@ const HeroSection: React.FC = () => {
         <motion.h1
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 10 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl lg:text-7xl font-serif font-bold mb-6"
         >
-          Pacific Music Academy
+          {content.hero_title}
         </motion.h1>
-        
+
         <motion.p
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 10.2 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl lg:text-2xl mb-8 leading-relaxed"
         >
-          Where talent meets opportunity
+          {content.hero_subtitle}
         </motion.p>
 
         <motion.p
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 10.4 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg mb-12 max-w-3xl mx-auto leading-relaxed opacity-90"
         >
           Performance & Music Academy provides a nurturing environment where students of all ages 
@@ -85,7 +76,7 @@ const HeroSection: React.FC = () => {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 10.6 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
           <button
@@ -94,7 +85,7 @@ const HeroSection: React.FC = () => {
           >
             Why Choose Us?
           </button>
-          
+
           <a
             href="/schedule-trial"
             className="border-2 border-white text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-white hover:text-navy-900 transition-all duration-300"
